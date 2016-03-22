@@ -3,6 +3,8 @@
                    assembly="UM007.NHibernate.TestDemo"
                    namespace="UM007.NHibernate.TestDemo.Domain">
   <class name="Catalog" table="Catalog" lazy="true" >
+
+    <!--标签定义了该属性到数据库表主键字段的映射-->
     <id name="Id" column="Id" type="string" >
       <generator class="assigned" />
     </id>
@@ -10,7 +12,6 @@
     <property name="PersonId" type="string">
       <column name="PersonId" length="64"/>
     </property>
-    <hello >我是测试的</hello>
   </class>
-  
+
 </hibernate-mapping>

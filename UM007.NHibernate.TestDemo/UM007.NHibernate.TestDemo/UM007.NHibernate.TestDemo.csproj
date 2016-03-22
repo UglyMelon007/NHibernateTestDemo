@@ -63,7 +63,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Catalog.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Catalog.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Person.hbm.xml" />
     <Content Include="Web.config" />
   </ItemGroup>

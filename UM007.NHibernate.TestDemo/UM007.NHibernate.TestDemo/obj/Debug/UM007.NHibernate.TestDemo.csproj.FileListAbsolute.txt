@@ -7,3 +7,4 @@ E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernat
 E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\bin\NHibernate.xml
 E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\obj\Debug\UM007.NHibernate.TestDemo.dll
 E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\obj\Debug\UM007.NHibernate.TestDemo.pdb
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\obj\Debug\UM007.NHibernate.TestDemo.csprojResolveAssemblyReference.cache
