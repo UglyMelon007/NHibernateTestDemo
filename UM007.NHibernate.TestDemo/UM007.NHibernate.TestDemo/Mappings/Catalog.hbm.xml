@@ -10,7 +10,7 @@
     <property name="PersonId" type="string">
       <column name="PersonId" length="64"/>
     </property>
-
+    <hello >我是测试的</hello>
   </class>
   
 </hibernate-mapping>
