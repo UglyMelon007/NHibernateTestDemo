@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="UM007.NHibernate.TestDemo"
+                   namespace="UM007.NHibernate.TestDemo.Domain">
+
+  <class name="Person" table="Person" lazy="true" >
+    <id name="Id" column="Id" type="string" >
+      <generator class="assigned" />
+    </id>
+
+    <property name="Name" type="string">
+      <column name="Name" length="64"/>
+    </property>
+
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\bin\UM007.NHibernate.TestDemo.dll.config
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\bin\UM007.NHibernate.TestDemo.dll
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\bin\UM007.NHibernate.TestDemo.pdb
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\bin\Iesi.Collections.dll
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\bin\NHibernate.dll
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\bin\Iesi.Collections.xml
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\bin\NHibernate.xml
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\obj\Debug\UM007.NHibernate.TestDemo.dll
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo\obj\Debug\UM007.NHibernate.TestDemo.pdb
