@@ -359,7 +359,54 @@ namespace UM007.NHibernate.TestDemo.UnitTest
 
         #region many-to-many
 
+        #region 单向多对多
 
+        /// <summary>
+        /// 单向多对多插入测试
+        /// </summary>
+        [TestMethod]
+        public void ManyToManyModel1CUnitTest()
+        {
+            using (ISession session = _factory.OpenSession())
+            {
+                Role role1 = new Role { Id = "1", Name = "库管" };
+                Role role2 = new Role { Id = "2", Name = "出纳" };
+                Role role3 = new Role { Id = "3", Name = "会计" };
+
+                User liu = new User
+                {
+                    Id = "1",
+                    Name = "刘四",
+                    Roles = new List<Role> { role1, role2 }
+                };
+                User zhang = new User
+                {
+                    Id = "2",
+                    Name = "张三",
+                    Roles = new List<Role> { role2, role3 }
+                };
+
+                ITransaction tran = session.BeginTransaction();
+                try
+                {
+                    session.Save(role1);
+                    session.Save(role2);
+                    session.Save(role3);
+
+                    session.Save(liu);
+                    session.Save(zhang);
+
+                    tran.Commit();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    throw ex;
+                }
+            }
+        }
+
+        #endregion
 
         #endregion
 

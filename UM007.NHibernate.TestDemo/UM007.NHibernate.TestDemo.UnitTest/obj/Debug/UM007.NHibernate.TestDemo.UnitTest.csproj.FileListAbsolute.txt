@@ -8,3 +8,5 @@ E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernat
 E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo.UnitTest\obj\Debug\UM007.NHibernate.TestDemo.UnitTest.csprojResolveAssemblyReference.cache
 E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo.UnitTest\obj\Debug\UM007.NHibernate.TestDemo.UnitTest.dll
 E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo.UnitTest\obj\Debug\UM007.NHibernate.TestDemo.UnitTest.pdb
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo.UnitTest\bin\Debug\Iesi.Collections.dll
+E:\chao_code\ASPNet\NHibernateTestDemo\UM007.NHibernate.TestDemo\UM007.NHibernate.TestDemo.UnitTest\bin\Debug\Iesi.Collections.xml
