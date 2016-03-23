@@ -11,6 +11,7 @@ namespace UM007.NHibernate.TestDemo.Domain
     {
         public virtual string Id { get; set; }
         public virtual string Name { get; set; }
+        public virtual IList<User> Users { get; set; }
 
         public virtual LifecycleVeto OnSave(ISession s)
         {

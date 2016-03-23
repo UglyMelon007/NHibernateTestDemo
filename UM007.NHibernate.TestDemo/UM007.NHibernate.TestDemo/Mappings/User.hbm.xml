@@ -3,7 +3,7 @@
                    assembly="UM007.NHibernate.TestDemo"
                    namespace="UM007.NHibernate.TestDemo.Domain">
 
-  <class name="User" table="User" lazy="true" >
+  <class name="User" table="Users" lazy="true" >
 
     <!--标签定义了该属性到数据库表主键字段的映射-->
     <id name="Id" column="Id" type="string" >
@@ -15,8 +15,8 @@
     </property>
 
     <bag name="Roles" table="UserRole" lazy="true">
-      <key column="Id"/>
-      <many-to-many class="Role" column="UserId"/>
+      <key column="UserId"/>
+      <many-to-many class="Role" column="RoleId"/>
     </bag>
   </class>
 

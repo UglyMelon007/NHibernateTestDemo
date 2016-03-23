@@ -13,6 +13,11 @@
       <column name="Name" length="64"/>
     </property>
 
+    <bag name="Users" table="UserRole">
+      <key column="RoleID"/>
+      <many-to-many class="User" column="UserID"/>
+    </bag>
+
   </class>
 
 </hibernate-mapping>

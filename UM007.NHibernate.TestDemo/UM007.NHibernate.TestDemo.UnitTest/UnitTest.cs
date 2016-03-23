@@ -90,10 +90,10 @@ namespace UM007.NHibernate.TestDemo.UnitTest
                         person.Name = "world";
                         tran.Commit();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         tran.Rollback();//若出错，则回滚
-                        throw ex;
+                        throw;
                     }
                 }
             }
@@ -124,10 +124,10 @@ namespace UM007.NHibernate.TestDemo.UnitTest
                         person.Name = "world";
                         tran.Commit();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         tran.Rollback();//若出错，则回滚
-                        throw ex;
+                        throw;
                     }
                 }
             }
@@ -143,10 +143,10 @@ namespace UM007.NHibernate.TestDemo.UnitTest
                         session.Update(person);
                         tran.Commit();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         tran.Rollback();
-                        throw ex;
+                        throw;
                     }
                 }
             }
@@ -176,10 +176,10 @@ namespace UM007.NHibernate.TestDemo.UnitTest
 
                         tran.Commit();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         tran.Rollback();
-                        throw ex;
+                        throw;
                     }
                 }
             }
@@ -193,7 +193,6 @@ namespace UM007.NHibernate.TestDemo.UnitTest
         {
             using (ISession session = _factory.OpenSession())
             {
-                string id = "1";
                 Student st = session.CreateQuery("from Student where Id='1'").List<Student>().First() as Student;
 
                 Console.WriteLine("人名{0}", st.Name);
@@ -224,10 +223,10 @@ namespace UM007.NHibernate.TestDemo.UnitTest
                         session.Save(family);
                         tran.Commit();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         tran.Rollback();
-                        throw ex;
+                        throw;
                     }
                 }
             }
@@ -291,10 +290,10 @@ namespace UM007.NHibernate.TestDemo.UnitTest
 
                     tran.Commit();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     tran.Rollback();
-                    throw ex;
+                    throw;
                 }
             }
         }
@@ -329,10 +328,10 @@ namespace UM007.NHibernate.TestDemo.UnitTest
                     session.Save(luo);
                     tran.Commit();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     tran.Rollback();
-                    throw ex;
+                    throw;
                 }
             }
         }
@@ -398,10 +397,101 @@ namespace UM007.NHibernate.TestDemo.UnitTest
 
                     tran.Commit();
                 }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        #endregion
+
+        #region 双向多对多
+
+        /// <summary>
+        /// 双向多对多插入测试
+        /// </summary>
+        [TestMethod]
+        public void ManyToManyModel2CUntilTest()
+        {
+            using (ISession session = _factory.OpenSession())
+            {
+                var user = new User
+                {
+                    Id = "3",
+                    Name = "刘五"
+                };
+
+                var role = new Role
+                {
+                    Id = "4",
+                    Name = "系统管理员",
+                    Users = new List<User> { user }
+                };
+
+                ITransaction tran = session.BeginTransaction();
+                try
+                {
+                    session.Save(user);
+                    session.Save(role);
+
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 双向多对多更新测试
+        /// </summary>
+        [TestMethod]
+        public void ManyToManyModel2UUnitTest()
+        {
+            using (ISession session = _factory.OpenSession())
+            {
+
+                var role = session.Get<Role>("4");
+                var user = session.Get<User>("1");
+                user.Roles.Clear();
+                user.Roles.Add(role);
+
+                ITransaction tran = session.BeginTransaction();
+                try
+                {
+                    session.Update(user);
+
+                    tran.Commit();
+                }
                 catch (Exception ex)
                 {
                     tran.Rollback();
                     throw ex;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 双向多对多查询测试
+        /// </summary>
+        [TestMethod]
+        public void ManyToManyModel2RUnitTest()
+        {
+            using (ISession session = _factory.OpenSession())
+            {
+                var user = session.Get<User>("1");
+
+                foreach (var item in user.Roles)
+                {
+                    Console.WriteLine("角色名称：{0}", item.Name);
+                    foreach (var us in item.Users)
+                    {
+                        Console.WriteLine("用户名称：{0}", us.Name);
+                    }
                 }
             }
         }
