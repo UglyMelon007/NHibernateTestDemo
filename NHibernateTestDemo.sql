@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [NHibernateTestDemo]    Script Date: 2016/3/22 15:01:35 ******/
+/****** Object:  Database [NHibernateTestDemo]    Script Date: 2016/3/23 16:43:38 ******/
 CREATE DATABASE [NHibernateTestDemo]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -77,14 +77,26 @@ EXEC sys.sp_db_vardecimal_storage_format N'NHibernateTestDemo', N'ON'
 GO
 USE [NHibernateTestDemo]
 GO
-/****** Object:  Table [dbo].[Catalog]    Script Date: 2016/3/22 15:01:35 ******/
+/****** Object:  Table [dbo].[Catalog]    Script Date: 2016/3/23 16:43:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Catalog](
+	[Id] [nvarchar](64) NULL,
+	[PersonId] [nvarchar](64) NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Class]    Script Date: 2016/3/23 16:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Class](
 	[Id] [nvarchar](64) NOT NULL,
-	[PersonId] [nvarchar](64) NULL,
+	[Name] [nvarchar](64) NULL,
+	[TeacherId] [nvarchar](64) NULL,
  CONSTRAINT [PK_Catalog] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -92,15 +104,98 @@ CREATE TABLE [dbo].[Catalog](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Person]    Script Date: 2016/3/22 15:01:35 ******/
+/****** Object:  Table [dbo].[Family]    Script Date: 2016/3/23 16:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Family](
+	[Id] [nvarchar](64) NOT NULL,
+	[Address] [nvarchar](64) NULL,
+ CONSTRAINT [PK_Family] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Person]    Script Date: 2016/3/23 16:43:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Person](
+	[Id] [nvarchar](64) NULL,
+	[Name] [nvarchar](64) NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Role]    Script Date: 2016/3/23 16:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Role](
 	[Id] [nvarchar](64) NOT NULL,
 	[Name] [nvarchar](64) NULL,
+ CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Student]    Script Date: 2016/3/23 16:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Student](
+	[Id] [nvarchar](64) NOT NULL,
+	[Name] [nvarchar](64) NULL,
+	[ClassId] [nvarchar](64) NULL,
  CONSTRAINT [PK_Name] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Teacher]    Script Date: 2016/3/23 16:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Teacher](
+	[Id] [nvarchar](64) NOT NULL,
+	[Name] [nvarchar](64) NULL,
+ CONSTRAINT [PK_Teacher] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[UserRole]    Script Date: 2016/3/23 16:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserRole](
+	[UserId] [nvarchar](64) NULL,
+	[RoleId] [nvarchar](64) NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 2016/3/23 16:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[Id] [nvarchar](64) NOT NULL,
+	[Name] [nvarchar](64) NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -110,16 +205,16 @@ GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [IX_Catalog]    Script Date: 2016/3/22 15:01:35 ******/
-CREATE NONCLUSTERED INDEX [IX_Catalog] ON [dbo].[Catalog]
+/****** Object:  Index [IX_Catalog]    Script Date: 2016/3/23 16:43:38 ******/
+CREATE NONCLUSTERED INDEX [IX_Catalog] ON [dbo].[Class]
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[Catalog]  WITH CHECK ADD  CONSTRAINT [FK_Catalog_Catalog] FOREIGN KEY([PersonId])
-REFERENCES [dbo].[Person] ([Id])
+ALTER TABLE [dbo].[Student]  WITH CHECK ADD  CONSTRAINT [FK_Student_Class] FOREIGN KEY([ClassId])
+REFERENCES [dbo].[Class] ([Id])
 GO
-ALTER TABLE [dbo].[Catalog] CHECK CONSTRAINT [FK_Catalog_Catalog]
+ALTER TABLE [dbo].[Student] CHECK CONSTRAINT [FK_Student_Class]
 GO
 USE [master]
 GO
