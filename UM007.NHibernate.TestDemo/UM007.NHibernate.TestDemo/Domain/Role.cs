@@ -7,7 +7,7 @@ using NHibernate.Classic;
 
 namespace UM007.NHibernate.TestDemo.Domain
 {
-    public class Person : ILifecycle, IValidatable
+    public class Role : ILifecycle, IValidatable
     {
         public virtual string Id { get; set; }
         public virtual string Name { get; set; }

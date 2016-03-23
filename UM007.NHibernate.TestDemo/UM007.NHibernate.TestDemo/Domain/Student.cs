@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using NHibernate;
 using NHibernate.Classic;
 
 namespace UM007.NHibernate.TestDemo.Domain
 {
-    public class Person : ILifecycle, IValidatable
+    public class Student : ILifecycle, IValidatable
     {
         public virtual string Id { get; set; }
         public virtual string Name { get; set; }
+        public virtual Class Class { get; set; }
+        public virtual Family Family { get; set; }
 
         public virtual LifecycleVeto OnSave(ISession s)
         {

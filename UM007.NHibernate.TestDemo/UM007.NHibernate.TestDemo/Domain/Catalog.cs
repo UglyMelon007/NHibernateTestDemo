@@ -16,7 +16,7 @@ namespace UM007.NHibernate.TestDemo.Domain
         public virtual LifecycleVeto OnSave(ISession s)
         {
             Console.WriteLine("您调用了Save()方法！");
-            return LifecycleVeto.Veto;//LifecycleVeto.Veto若返回些值，则操作将被取消
+            return LifecycleVeto.NoVeto;//LifecycleVeto.Veto若返回此值，则操作将被取消
         }
 
         public virtual LifecycleVeto OnUpdate(ISession s)

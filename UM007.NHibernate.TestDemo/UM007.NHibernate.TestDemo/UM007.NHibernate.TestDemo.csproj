@@ -66,12 +66,26 @@
     <EmbeddedResource Include="Mappings\Catalog.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Family.hbm.xml" />
     <EmbeddedResource Include="Mappings\Person.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Class.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Student.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Teacher.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Role.hbm.xml" />
+    <EmbeddedResource Include="Mappings\User.hbm.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Catalog.cs" />
+    <Compile Include="Domain\Class.cs" />
+    <Compile Include="Domain\Family.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Domain\Person.cs" />
+    <Compile Include="Domain\Role.cs" />
+    <Compile Include="Domain\Student.cs" />
+    <Compile Include="Domain\Teacher.cs" />
+    <Compile Include="Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

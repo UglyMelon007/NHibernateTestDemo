@@ -7,10 +7,12 @@ using NHibernate.Classic;
 
 namespace UM007.NHibernate.TestDemo.Domain
 {
-    public class Person : ILifecycle, IValidatable
+    public class Class : ILifecycle, IValidatable
     {
         public virtual string Id { get; set; }
         public virtual string Name { get; set; }
+        public virtual Teacher Teacher { get; set; }
+        public virtual IList<Student> Students { get; set; }
 
         public virtual LifecycleVeto OnSave(ISession s)
         {
